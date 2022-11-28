@@ -2,7 +2,7 @@ import process from 'node:process';
 import mongoose from 'mongoose';
 import { ApolloServer } from '@apollo/server';
 import { startStandaloneServer } from '@apollo/server/standalone';
-import * as typeDefs from './typeDefs';
+import typeDefs from './typeDefs';
 import resolvers from './resolvers';
 // Database
 const db = {
@@ -23,7 +23,8 @@ mongoose
     .catch((error) => console.log("Databased failed: ", error));
 // GraphQL
 const server = new ApolloServer({
-    typeDefs, resolvers
+    typeDefs,
+    resolvers,
 });
 const { url } = await startStandaloneServer(server, {
     listen: { port: 4000 }

@@ -1,4 +1,3 @@
-
 import types from "./types";
 import queries from "./queries";
 import mutation from "./mutation";

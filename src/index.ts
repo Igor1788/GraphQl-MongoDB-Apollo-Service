@@ -2,7 +2,7 @@ import process from 'node:process'
 import mongoose from 'mongoose';
 import { ApolloServer } from '@apollo/server' ;   
 import { startStandaloneServer } from '@apollo/server/standalone';
-import * as typeDefs from './typeDefs';
+import typeDefs from './typeDefs';
 import resolvers from './resolvers';
 
 
@@ -28,9 +28,8 @@ mongoose
 
 // GraphQL
 const server = new ApolloServer({
-  
-  typeDefs, resolvers
-
+  typeDefs,
+  resolvers,
 });
 
 const { url } = await startStandaloneServer(server, {
