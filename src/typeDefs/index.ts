@@ -1,7 +1,7 @@
 
-import * as types from "./types";
-import * as queries from "./queries";
-import * as mutation from "./mutation";
+import types from "./types";
+import queries from "./queries";
+import mutation from "./mutation";
 
 const typeDefs = [
     types,
