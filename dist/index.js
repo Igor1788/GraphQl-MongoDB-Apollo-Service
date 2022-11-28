@@ -2,9 +2,8 @@ import process from 'node:process';
 import mongoose from 'mongoose';
 import { ApolloServer } from '@apollo/server';
 import { startStandaloneServer } from '@apollo/server/standalone';
-import makeExecutableSchema from './typeDefs';
+import typeDefs from './typeDefs';
 import resolvers from './resolvers';
-const typeDefs = makeExecutableSchema;
 // Database
 const db = {
     host: process.env.DB_HOST,

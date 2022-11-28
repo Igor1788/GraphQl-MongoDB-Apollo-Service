@@ -1,4 +1,4 @@
-const Book = require('../models/Book');
+import Book from '../models/Book';
 const bookResolver = {
     Query: {
         books() {
@@ -9,15 +9,9 @@ const bookResolver = {
         },
     },
     Mutation: {
-        createBook(_, { title, author, amount }) {
-            const book = new Book({
-                title,
-                author,
-                price: {
-                    amount,
-                },
-            });
-            return book.save();
+        createBook(_, { book }) {
+            const newBook = new Book(book);
+            return newBook.save();
         },
         updateBook(_, { id, books }) {
             return Book.findByIdAndUpdate(id, books, {
@@ -26,10 +20,8 @@ const bookResolver = {
             });
         },
         deleteBook(_, { id }) {
-            return Book.findByIdAndDelete(id, {
-                useFindAndModify: false,
-            });
-        },
-    }
+            return Book.findByIdAndRemove(id);
+        }
+    },
 };
 export default bookResolver;
